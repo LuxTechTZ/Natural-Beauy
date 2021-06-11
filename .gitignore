@@ -36,6 +36,7 @@ yarn.lock
 ### Assets ###
 /node_modules
 /public/hot
+/Public/uploads
 /public/storage
 /storage/*.key
 /vendor
