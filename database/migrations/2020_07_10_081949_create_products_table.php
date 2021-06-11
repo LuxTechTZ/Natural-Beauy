@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id')->unsigned()->index();
+            $table->unsignedBigInteger('shop_id')->unsigned()->index();
             $table->string('name');
             $table->string('price');
             $table->string('stock');
@@ -24,6 +25,7 @@ class CreateProductsTable extends Migration
 
             // Relationships
             $table->foreign('category_id')->references('id')->on('product_categories')->onDelete('cascade');
+            $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
 
         });
     }

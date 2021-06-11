@@ -190,5 +190,13 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Chuo\Subscription');
     }
 
+    /**
+     * Get the category that owns the product.
+     */
+    public function shop()
+    {
+        return $this->hasOne('App\Models\Chuo\Shop');
+    }
+
 
 }
