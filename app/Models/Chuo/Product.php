@@ -16,9 +16,10 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        
+
         'name',
         'category_id',
+        'shop_id',
         'price',
         'stock',
     ];
@@ -29,6 +30,14 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo('App\Models\Chuo\ProductCategory');
+    }
+
+    /**
+     * Get the category that owns the product.
+     */
+    public function shop()
+    {
+        return $this->belongsTo('App\Models\Chuo\Shop');
     }
 
 

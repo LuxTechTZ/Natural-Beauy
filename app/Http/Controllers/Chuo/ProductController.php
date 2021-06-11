@@ -57,7 +57,7 @@ class ProductController extends Controller
 
         // Save Product
         $product = new Product;
-
+        $request['shop_id'] = Auth::user()->shop->id;
         $data = $product->create($request->all());
 
         // save Details
@@ -84,7 +84,7 @@ class ProductController extends Controller
         $main_photo->save();
 
         return redirect()->back()->withFlashSuccess('Module Updated');
-        
+
     }
 
     /**
@@ -127,7 +127,7 @@ class ProductController extends Controller
         $detail = $this->product_detail->where('product_id','=',$id)->first();
 
         if (!isset($detail)) {
-            
+
             $detail = new ProductDetail;
             $detail->product_id = $id;
             $detail->status = 1;
@@ -146,7 +146,7 @@ class ProductController extends Controller
             }
         }
         return redirect()->back()->withFlashSuccess('Module Updated');
-        
+
     }
 
     public function updateImages(Request $request, $id)
@@ -178,19 +178,19 @@ class ProductController extends Controller
         $image = new Image;
 
         $file_type = $img->extension();
-                
+
         $file_name  = microtime(true).".".$file_type;
 
         $file_name = '/uploads/products/'.$file_name;
-                
+
         // $file_size = $img->getClientSize();
-               
+
         $img->move('uploads/products',$file_name);
 
         $image->product_id = $id;
         $image->image = $file_name;
         $image->extension = $file_type;
-        
+
         if ($image->save()) {
             return true;
         }
