@@ -76,6 +76,11 @@
 							</li>
 						</ul><!--/end shop product ratings-->
 
+                        <p>
+                            <b>Shop Name:</b> {{$product->shop->name}} <br>
+                            <b>Shop Tell:</b> {{$product->shop->phone}}
+                        </p>
+
 						<p>{{$product->product_details->details}}</p><br>
 
 						<ul class="list-inline shop-product-prices margin-bottom-30">
@@ -161,10 +166,10 @@
 											<li><i class="fa fa-caret-right"></i>{{$specific->title}}: <span>{{$specific->value}}</span>
 											</li>
 											@endforeach
-											
+
 										</ul>
 									</div>
-									
+
 								</div>
 							</div>
 							<div class="col-md-5">

@@ -49,7 +49,7 @@ Products
  						</div>
  						<div class="col-sm-8">
  							<ul class="list-inline clear-both">
- 								
+
  								<li class="sort-list-btn">
  									<h3>Categories :</h3>
  									<div class="btn-group">
@@ -91,7 +91,8 @@ Products
  							<div class="col-md-3">
  								<div class="product-img product-img-brd">
 
-									<a href="{{url('/')}}/product/{{$product->id}}"><img class="full-width img-responsive"  src="{{url('/')}}/{{$product->images->first()->image}}" alt=""></a>
+									<a href="{{url('/')}}/product/{{$product->id}}">
+                                        <img class="full-width img-responsive"  src="{{url('/')}}/{{$product->images->first()->image}}" alt=""></a>
 
  									<a class="product-review" href="shop-ui-inner.html">Quick review</a>
  									<a class="add-to-cart" href="{{url('/')}}/adtocart/{{$product->id}}"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -117,7 +118,7 @@ Products
  									</ul>
  								</div>
  							</div>
- 							<?php 
+ 							<?php
  								$i = $j/4;
  								if (is_int($i)) {
  									echo "
